@@ -1,5 +1,7 @@
 package Chapter5;
 
+import java.util.ArrayList;
+
 public class SimpleDotcomTestDrive {
 
 	public static void main(String[] args) {
@@ -9,8 +11,7 @@ public class SimpleDotcomTestDrive {
 		
 		int randNum = (int)(Math.random() * 5);
 		
-		int[] locations = {randNum, randNum+1, randNum+2};
-		dot.setLocationCells(locations);
+		ArrayList<String> locations = new ArrayList<String>();
 		boolean isAlive = true;
 		
 		while(isAlive == true) {

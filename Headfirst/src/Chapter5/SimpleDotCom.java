@@ -1,15 +1,15 @@
 package Chapter5;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class SimpleDotCom {
-	int[] locationCells;
-	int numOfHits = 0;
+	private ArrayList<String> locationCells;
 	
 
-	public void setLocationCells(int[] locations) {
+	public void setLocationCells(ArrayList<String> loc) {
 		// TODO Auto-generated method stub
-		locationCells = locations;
+		locationCells = loc;
 	}
 
 	public String checkYourself(String stringGuess) {
@@ -17,19 +17,17 @@ public class SimpleDotCom {
 		int guess = Integer.parseInt(stringGuess);
 		String result = "miss";
 		
-		for(int cell:locationCells) {
-			if(guess == cell) {
+		int index = locationCells.indexOf(stringGuess);
+		if(index >= 0) {
+			locationCells.remove(index);
+			
+			if(locationCells.isEmpty()) {
+				result = "kill";
+			}
+			else {
 				result = "hit";
-				numOfHits++;
-				break;
 			}
 		}
-		
-		if(numOfHits == locationCells.length) {
-			result = "kill";
-		}
-		
-		System.out.println(result);
 		
 		return result;
 	}
